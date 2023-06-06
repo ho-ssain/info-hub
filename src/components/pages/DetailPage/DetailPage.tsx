@@ -1,23 +1,23 @@
-import {useLocation} from 'react-router-dom';
-import {filterAndSliceArticles} from '../../../utils/filterAndSliceArticles/filterAndSliceArticles';
-import {timeElapsedSince} from '../../../utils/timeElapsed/timeElapsed';
-import CategoryHeader from '../../atoms/CategoryHeader/Header';
-import Loader from '../../atoms/Loader/Loader';
-import Card from '../../molecules/Card/Card';
-import CategoryComponent from '../../molecules/Category/Category';
-import HeaderNavigationMenu from '../../organisms/Navigation/HeaderNavigationMenu';
+import { useLocation } from "react-router-dom";
+import { filterAndSliceArticles } from "../../../utils/filterAndSliceArticles/filterAndSliceArticles";
+import { timeElapsedSince } from "../../../utils/timeElapsed/timeElapsed";
+import CategoryHeader from "../../atoms/CategoryHeader/Header";
+import Loader from "../../atoms/Loader/Loader";
+import Card from "../../molecules/Card/Card";
+import CategoryComponent from "../../molecules/Category/Category";
+import HeaderNavigationMenu from "../../organisms/Navigation/HeaderNavigationMenu";
 const DetailPage = () => {
   const location = useLocation();
-  const {category}: any = location.state;
+  const { category }: any = location.state;
 
   return (
     <>
       {/* nav */}
-      <HeaderNavigationMenu title={'React News App'} />
+      <HeaderNavigationMenu title={"info-hub"} />
       {/* <h1>Category</h1> */}
       <CategoryComponent />
-      <div className='flex-container'>
-        <div className='flex-item-left'>
+      <div className="flex-container">
+        <div className="flex-item-left">
           <CategoryHeader title={category.title} />
           {category.data ? (
             filterAndSliceArticles(category.data, 10).map(
